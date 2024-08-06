@@ -1,0 +1,24 @@
+"""
+You're doing great! Now, let's sharpen your skills with another common web request scenario.
+Modify the given code to add error handling for the web request using a try-except block.
+Specifically, determine if the request is successful or if it times out, and respond appropriately.
+"""
+
+import requests
+
+try:
+    # TODO: Send request to http://www.google.com:81/ with timeout of 5 seconds  
+    # TODO: Check if the request was successful (status_code 200) and print a message
+    # TODO: Handle the case where the status code is not 200 with an appropriate message
+    response = requests.get("http://www.google.com:81/", timeout = 5)
+    if response.status_code == 200:
+        print("request successfull")
+    else:
+        print("request failed")
+        
+except requests.exceptions.Timeout:
+    # Handle the possibility of a timeout with an appropriate message
+    print("Request timed out. Please try again later.")
+except requests.exceptions.RequestException as e:
+    # Handle other possible exceptions
+    print(f"An error occurred: {e}")

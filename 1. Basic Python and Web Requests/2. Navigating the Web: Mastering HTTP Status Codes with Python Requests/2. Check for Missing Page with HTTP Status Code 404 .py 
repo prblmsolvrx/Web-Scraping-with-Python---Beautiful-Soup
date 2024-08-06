@@ -1,0 +1,19 @@
+"""
+In this exercise, you will tweak our HTTP status check for the online bookstore's quotes page.
+Instead of confirming that the page is up with a 200 OK, change the code to check if the page
+cannot be found, using a 404 Not Found status code. Let's ensure our code can handle different
+types of HTTP responses effectively!
+"""
+
+
+import requests
+
+# Let's pretend we want to check if the online bookstore's quotes page is working
+response = requests.get('http://quotes.toscrape.com')
+# TODO: Update the code to check for 404 status instead, and remember to change messages accordingly
+if response.status_code == 200:
+    print("The bookstore's quotes page is up and running!")
+elif response.status_code == 404:
+    print("The page was not found (404).")
+else:
+    print("Something went wrong. Status code:", response.status_code)

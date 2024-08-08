@@ -1,0 +1,15 @@
+"""
+Your objective is to find all paragraphs with a specific
+class attribute in our HTML content. Can you retrieve the
+adventurous stories classified under "story"?
+"""
+
+from bs4 import BeautifulSoup
+
+html_content = '<div><p class="story">Adventures in the Sahara.</p><p class="story">Exploring the Amazon Rainforest.</p><p>Exploring the Space</p></div>'
+soup = BeautifulSoup(html_content, 'html.parser')
+# TODO: Retrieve all paragraphs with the class 'story' and print their text content.
+paragraphs_with_story_class = soup.find_all('p',class_="story")
+
+for paragraph in paragraphs_with_story_class:
+    print(paragraph.text)
